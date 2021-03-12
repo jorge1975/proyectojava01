@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="com.senati.web.jsps.servlets.vo.VOLogin"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -36,9 +37,13 @@
 			accion.value="eliminar";
 			forma.submit();
 		}
+		
+		function carga(){
+			document.getElementById("usuario").focus();
+		}
 	</script>
 </head>
-<body>
+<body onload="carga();">
 	<!--  Contenedor -->
 	<div class="container">
 	<!--  fila -->
@@ -79,7 +84,20 @@
 						<th>Nombre</th>
 						<th>Edad</th>						
 					</tr>
-					
+					<%
+						
+						List<VOLogin> lista = (List<VOLogin>)session.getAttribute("listaUsuario");
+						for (VOLogin obj: lista){							
+					%>
+					  
+					<tr>
+						<td>	<%= obj.getUsuario() %></td>
+						<td>	<%= obj.getNombre() %></td>
+						<td>	<%= obj.getEdad() %></td>
+					</tr>
+					<%
+						}
+					%>
 				</table>
 			</div>
 			<!--  Grupo 3 de columnas -->

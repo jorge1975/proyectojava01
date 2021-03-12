@@ -14,6 +14,7 @@ import com.senati.web.jsps.servlets.vo.VOLogin;
 /**
  * Servlet implementation class UsuariosServlet
  */
+//Se cambio la ruta raiz
 @WebServlet("/adminUsuarios.servlet")
 public class UsuariosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -78,6 +79,7 @@ public class UsuariosServlet extends HttpServlet {
 				}
 			}
 		}
+		//redirecccionamiento
 		response.sendRedirect("usuarios/usuarios.jsp");
 	}
 
